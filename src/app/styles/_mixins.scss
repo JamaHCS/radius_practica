@@ -1,0 +1,36 @@
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == mobile {
+        @media only screen and (max-width: $breakpoint-mobile) {
+            @content;
+        }
+    }
+    @else if $breakpoint == tablet {
+        @media only screen and (max-width: $breakpoint-tablet) {
+            @content;
+        }
+    }
+    @else if $breakpoint == desktop {
+        @media only screen and (max-width: $breakpoint-desktop) {
+            @content;
+        }
+    }
+    @else if $breakpoint == big {
+        @media only screen and (max-width: $breakpoint-bigdesktop) {
+            @content;
+        }
+    }
+}
+
+@mixin focused() {
+    outline: 0 none;
+    outline-offset: 0;
+    transition: box-shadow .2s;
+    box-shadow: var(--focus-ring);
+}
+
+@mixin focused-inset() {
+    outline: 0 none;
+    outline-offset: 0;
+    transition: box-shadow .2s;
+    box-shadow: inset var(--focus-ring);
+}

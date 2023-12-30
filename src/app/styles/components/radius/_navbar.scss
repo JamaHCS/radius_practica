@@ -1,0 +1,35 @@
+header {
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  background-color: $color-background-main-darken-2;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $borderColor;
+
+  .p-menubar {
+    border: none;
+
+    p-menubar {
+      ul {
+        margin-bottom: 0;
+
+        li {
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    max-height: 50px;
+    margin: 0 1rem;
+  }
+}
+
+.content {
+  margin-top: -1rem;
+}

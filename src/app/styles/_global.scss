@@ -1,0 +1,226 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+body {
+  margin: 0 !important;
+  background-color: $color-background-main-darken !important;
+  font-family: $fontText, sans-serif !important;
+}
+
+.container-padding {
+  padding-left: 4 * $padding-container;
+  padding-right: 4 * $padding-container;
+
+  @include respond-to(big) {
+    padding-left: 3 * $padding-container;
+    padding-right: 3 * $padding-container;
+  }
+
+  @include respond-to(desktop) {
+    padding-left: 2 * $padding-container;
+    padding-right: 2 * $padding-container;
+  }
+
+  @include respond-to(tablet) {
+    padding-left: 1 * $padding-container;
+    padding-right: 1 * $padding-container;
+  }
+
+  @include respond-to(mobile) {
+    padding-left: 0 * $padding-container;
+    padding-right: 0 * $padding-container;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: $scroll-height;
+  height: $scroll-height;
+  /*display: none; */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px #8f8f8f;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+*::-webkit-scrollbar-track:hover,
+*::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+*::-webkit-scrollbar-track { 
+  background: #e1e1e1;
+  border-radius: 8px;
+}
+
+.separator {
+  margin-top: 8px;
+  margin-bottom: 2rem;
+  width: 100%;
+  border-bottom: 1px solid lighten($color-gris-claro-darken, 35%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontHeaders, sans-serif !important;
+  font-weight: 600;
+
+  span {
+    text-decoration: underline;
+    text-decoration-color: $secondaryColor;
+  }
+}
+
+.p-card-title {
+  font-family: $fontHeaders, sans-serif !important;
+  font-weight: 600;
+
+  span {
+    text-decoration: underline;
+    text-decoration-color: $secondaryColor;
+  }
+}
+
+.rem-1-5 {
+  font-size: 1.5rem;
+}
+
+.p-card {
+  h3 {
+    color: $text-header-color;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.error {
+  font-size: 0.8rem;
+  color: $color-rojo;
+}
+
+p-password {
+  & > div {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.pi-check-circle {
+  color: $secondaryColor;
+}
+
+.ls-none {
+  list-style: none;
+}
+
+a.link {
+  color: white !important;
+  transition: 200ms;
+  text-decoration: none;
+
+  &:hover {
+    color: darken(white, 10%);
+  }
+  // background-color: red;
+}
+
+.container {
+  width: 100%; /* Ancho máximo del contenedor */
+  padding-right: 15px; /* Espaciado derecho para evitar desbordamiento horizontal */
+  padding-left: 15px; /* Espaciado izquierdo para evitar desbordamiento horizontal */
+  margin-right: auto; /* Centrado horizontal */
+  margin-left: auto; /* Centrado horizontal */
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 670px; /* Ancho máximo en dispositivos pequeños (tabletas, etc.) */
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 800px; /* Ancho máximo en dispositivos medianos (tabletas, computadoras portátiles, etc.) */
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 1100px; /* Ancho máximo en dispositivos grandes (computadoras de escritorio) */
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 97%; /* Ancho máximo en dispositivos extra grandes (computadoras de escritorio más grandes) */
+  }
+}
+
+.table-tr {
+  td {
+    text-align: center !important;
+  }
+}
+
+i {
+  &.pi-check {
+    color: $color-button-success;
+    font-weight: 600;
+  }
+
+  &.pi-times {
+    color: $color-rojo;
+    font-weight: 600;
+  }
+}
+
+.p-menuitem-text {
+  padding: 0 0.5rem 0 0;
+}
+
+.p-sortable-column {
+  padding: 0.5rem 0.5rem !important;
+  & > div {
+    // border: 5px solid red;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.p-column-filter-menu-button {
+  align-items: flex-start;
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+.text-align-center {
+  text-align: center !important;
+}
+
+.p-divider-solid.p-divider-horizontal:before {
+  border-top-style: solid !important;
+}

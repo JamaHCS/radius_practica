@@ -9,12 +9,15 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'products'
+        pathMatch: 'full',
+        redirectTo: 'products',
       },
       {
         path: 'products',
         loadChildren: () =>
-          import('./modules/products/products.module').then((m) => m.ProductsModule),
+          import('./modules/products/products.module').then(
+            (m) => m.ProductsModule
+          ),
       },
     ],
   },

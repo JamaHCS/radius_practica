@@ -1,0 +1,106 @@
+$color-primary: #51b6d1;
+$color-complementario: #8a459b;
+$color-secondary: #632933;
+
+$color-complementario-100: darken($color-complementario, 10%);
+$color-complementario-200: darken($color-complementario, 20%);
+$color-complementario-300: darken($color-complementario, 30%);
+$color-complementario-800: lighten($color-complementario, 30%);
+$color-complementario-700: lighten($color-complementario, 20%);
+$color-complementario-600: lighten($color-complementario, 10%);
+
+$color-secondary-100: lighten($color-primary, 10%);
+$color-secondary-200: lighten($color-primary, 20%);
+$color-secondary-300: lighten($color-primary, 30%);
+
+$color-primary-100: lighten($color-secondary, 10%);
+$color-primary-200: lighten($color-secondary, 20%);
+$color-primary-300: lighten($color-secondary, 30%);
+
+
+$primaryColor: $color-primary;
+$secondaryColor: $color-primary;
+
+$borderColor: #dee2e6;
+
+
+$saturation: 50%;
+
+@function increase-saturation($color, $amount) {
+  $hsl: hsl($color); // Convertir el color a HSL
+  $hue: nth($hsl, 1);
+  $saturation: nth($hsl, 2) + $amount; // Aumentar la saturación
+  $lightness: nth($hsl, 3);
+
+  // Asegurarse de que la saturación esté dentro del rango de 0 a 100%
+  $saturation: max(0, min(100, $saturation));
+
+  // Convertir de nuevo a RGB
+  @return hsl($hue, $saturation, $lightness);
+}
+
+/* General */
+$scale:14px;                    /* main font size */ 
+$borderRadius:12px;             /* border radius of layout element e.g. card, sidebar */ 
+$transitionDuration:.2s;        /* transition duration of layout elements e.g. sidebar, overlay menus */ 
+
+
+
+$fontHeaders: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$fontText: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$gutter: 1rem; 
+
+$color-background-main: #fff;
+$color-background-main-darken: #eff3f8;
+$color-background-main-darken-2: #f8f9fa;
+$color-background-dark: #1a1a1a;
+$color-bg-notification: white;
+
+
+$text-header-color: #495057;
+
+$padding-container: 2rem;
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-bigdesktop: 1400px;
+
+$p-button-hover: #e9ecef;
+
+$color-naranja: #ed6c1e;
+$color-gris-oscuro: #333;
+$color-gris-claro: #4d4d4d;
+$color-gris-claro-darken: #878889;
+$color-gris-muy-claro: #e6e7e8;
+$color-gris-muy-claro-hover: #d3d4d5;
+$color-verde: #26a69a;
+$color-verde-hover: #1f897f;
+$color-rojo: #f3565d;
+$color-rojo-hover: #f1355d;
+$color-coral: #e26a6a;
+$color-marino: #55616f;
+$color-marino-hover: #5d6b7a;
+$color-amarillo: #dfba49;
+$color-amarillo-hover: #daae2b;
+$color-excel: lighten(#227444, 5%);
+
+$color-text-muted: hsl(0, 0%, 54%);
+$color-text-muted-darker: darken($color-text-muted, 15%);
+$color-button-success: $color-verde;
+$color-button-success-hover: $color-verde-hover;
+$color-button-cancel: $color-gris-muy-claro;
+$color-button-cancel-hover: $color-gris-muy-claro-hover;
+$color-text-tab: $color-coral;
+$color-active-ink: $color-rojo;
+$color-button-edit: $color-rojo;
+$color-button-edit-hover: $color-rojo-hover;
+$color-button-status: $color-amarillo;
+$color-button-status-hover: $color-amarillo-hover;
+$color-button-status-hover: $color-amarillo-hover;
+
+$color-nav-text: $color-marino;
+$color-nav-text-hover: $color-marino-hover;
+
+$scroll-height: 12px;
