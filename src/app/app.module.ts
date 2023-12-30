@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { SpinnerInterceptor } from './core/interceptors/spinner/spinner.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SharedModule } from './shared/shared.module';
 
@@ -22,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     ToastModule,
     ScrollTopModule,
+    HttpClientModule,
     SharedModule,
     ToastrModule.forRoot(),
   ],

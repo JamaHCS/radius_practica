@@ -4,24 +4,12 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: AppComponent,
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'products',
-      },
-      {
-        path: 'products',
-        loadChildren: () =>
-          import('./modules/products/products.module').then(
-            (m) => m.ProductsModule
-          ),
-      },
-    ],
+    path: 'home',
+    pathMatch: 'prefix',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
   },
-  { path: '**', redirectTo: '/' },
+  { path: '**', redirectTo: '/home' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,1 +1,139 @@
-<p>index works!</p>
+<p-card header="Productos">
+  <p-table #table [value]="products" dataKey="id" [rows]="20" [loading]="loading" [rowHover]="true"
+    styleClass="p-datatable-gridlines p-datatable-sm datatable" [paginator]="true"
+    [globalFilterFields]="['id','product','folio','price', 'cost', 'category_name', 'color', 'size']"
+    responsiveLayout="scroll">
+
+    <ng-template pTemplate="caption">
+      <div class="toolbar">
+        <div class="p-inputgroup search-toolbar">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-search"></i>
+          </span>
+          <input pInputText type="text" #filter (input)="onGlobalFilter(table, $event)" placeholder="Busqueda..." />
+          <button pButton label="Limpiar filtros" class="p-button-outlined" icon="pi pi-filter-slash"
+            (click)="clear(table)"></button>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id">
+          <div>
+            ID
+            <p-sortIcon field="id"></p-sortIcon>
+            <p-columnFilter type="numeric" field="id" display="menu" placeholder="Buscar por ID"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="folio">
+          <div>
+            Folio
+            <p-sortIcon field="folio"></p-sortIcon>
+            <p-columnFilter type="text" field="folio" display="menu" placeholder="Buscar por folio"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="product">
+          <div>
+            Producto
+            <p-sortIcon field="product"></p-sortIcon>
+            <p-columnFilter type="text" field="product" display="menu"
+              placeholder="Buscar por producto"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="category_name">
+          <div>
+            Categoría
+            <p-sortIcon field="category_name"></p-sortIcon>
+            <p-columnFilter field="category_name" matchMode="equals" display="menu">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="value" [options]="categories" (onChange)="filter($event.value.category)" placeholder="Any">
+                  <ng-template let-option pTemplate="item">
+                    <p-tag [value]="option.category"></p-tag>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="color">
+          <div>
+            Color
+            <p-sortIcon field="color"></p-sortIcon>
+            <p-columnFilter type="text" field="color" display="menu" placeholder="Buscar por color"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="size">
+          <div>
+            Talla
+            <p-sortIcon field="size"></p-sortIcon>
+            <p-columnFilter type="text" field="size" display="menu" placeholder="Buscar por talla"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="price">
+          <div>
+            Precio
+            <p-sortIcon field="price"></p-sortIcon>
+            <p-columnFilter type="number" field="price" display="menu" placeholder="Buscar por precio"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="cost">
+          <div>
+            Costo
+            <p-sortIcon field="cost"></p-sortIcon>
+            <p-columnFilter type="number" field="cost" display="menu" placeholder="Buscar por costo"></p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-element>
+      <tr class="table-tr">
+        <td>
+          {{ element.id }}
+        </td>
+        <td>
+          {{ element.folio }}
+        </td>
+        <td>
+          {{ element.product }}
+        </td>
+        <td>
+          {{ element.category_name }}
+        </td>
+        <td>
+          {{ element.color }}
+        </td>
+        <td>
+          {{ element.size }}
+        </td>
+        <td>
+          {{ element.price }}
+        </td>
+        <td>
+          {{ element.cost }}
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8">No hay productos.</td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="loadingbody">
+      <tr>
+        <td colspan="5">Cargando información de los productos. Por favor, espera.</td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+</p-card>

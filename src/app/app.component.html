@@ -1,12 +1,7 @@
 <p-progressBar mode="indeterminate" *ngIf="isLoading$ | async"
   [style]="{ height: '6px', marginTop: '0', position: 'absolute', zIndex: 1000, top: 0, left: 0, width: '100%' }"></p-progressBar>
 <div class="content">
-  <div class="home-container">
-    <app-header></app-header>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
 
 <p-scrollTop></p-scrollTop>
