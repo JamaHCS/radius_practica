@@ -1,3 +1,5 @@
+
+// Importaciones de Bootstrap
 @import './../../../node_modules/bootstrap/scss/functions';
 @import './../../../node_modules/bootstrap/scss/variables';
 @import './../../../node_modules/bootstrap/scss/variables-dark';
@@ -13,12 +15,15 @@
 @import "./../../../node_modules/bootstrap/scss/helpers";
 @import "./../../../node_modules/bootstrap/scss/forms";
 
+// Importaciones propias
 @import './variables';
 @import './mixins';
 @import './global';
-@import "primeicons/primeicons.css";
 
+// Importaciones de librerías externas
+@import "primeicons/primeicons.css";
 @import 'ngx-toastr/toastr';
 @import 'ngx-toastr/toastr-bs5-alert';
 
+// Importaciones de componentes personalizados
 @import './components/radius/navbar';

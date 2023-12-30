@@ -5,12 +5,20 @@ import { Product, ProductCategory } from '../../models/products/DTO.model';
 import { routes } from 'src/app/utils/global/routes';
 import { Observable, forkJoin, map, of, switchMap } from 'rxjs';
 
+/**
+ * Servicio para obtener y manipular datos relacionados con productos.
+ * @@Injectable
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   constructor(private http: HttpClient) {}
 
+  /**
+   * Obtiene las categorías de productos desde un archivo CSV.
+   * @returns Observable<ProductCategory[]>: Observable de categorías de productos.
+   */
   categories(): Observable<ProductCategory[]> {
     return this.http
       .get(routes.repositories.subcategories, { responseType: 'text' })
@@ -35,6 +43,10 @@ export class ProductService {
       );
   }
 
+  /**
+   * Obtiene los productos desde un archivo CSV.
+   * @returns Observable<Product[]>: Observable de productos.
+   */
   products(): Observable<Product[]> {
     return this.http
       .get(routes.repositories.products, { responseType: 'text' })
@@ -63,6 +75,10 @@ export class ProductService {
       );
   }
 
+  /**
+   * Obtiene los productos con sus respectivas categorías.
+   * @returns Observable<Product[]>: Observable de productos con categorías.
+   */
   productsWithCategories(): Observable<Product[]> {
     return forkJoin({
       products: this.products(),
