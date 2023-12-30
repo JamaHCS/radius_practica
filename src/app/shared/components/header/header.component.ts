@@ -22,8 +22,16 @@ export class HeaderComponent implements OnInit {
         this.itemsHeader = [
           {
             label: 'Productos',
-            icon: 'fas fa-list',
-            routerLink: 'products'
+            items: [
+              {
+                label: 'Productos',
+                routerLink: '/home/products'
+              },
+              {
+                label: 'Categorías',
+                routerLink: '/home/products/categories'
+              }
+            ]
           },
         ];
   }

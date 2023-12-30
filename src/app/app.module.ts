@@ -13,6 +13,10 @@ import { SpinnerInterceptor } from './core/interceptors/spinner/spinner.intercep
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SharedModule } from './shared/shared.module';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [AppComponent],

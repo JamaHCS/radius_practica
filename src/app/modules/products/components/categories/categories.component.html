@@ -1,0 +1,76 @@
+<p-card header="Categoría">
+  <p-table #table [value]="categories" dataKey="id" [rows]="20" [loading]="loading" [rowHover]="true"
+    styleClass="p-datatable-gridlines p-datatable-sm datatable" [paginator]="true"
+    [globalFilterFields]="['id','category','date']"
+    responsiveLayout="scroll">
+
+    <ng-template pTemplate="caption">
+      <div class="toolbar">
+        <div class="p-inputgroup search-toolbar">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-search"></i>
+          </span>
+          <input pInputText type="text" #filter (input)="onGlobalFilter(table, $event)" placeholder="Busqueda..." />
+          <button pButton label="Limpiar filtros" class="p-button-outlined" icon="pi pi-filter-slash"
+            (click)="clear(table)"></button>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id">
+          <div>
+            ID
+            <p-sortIcon field="id"></p-sortIcon>
+            <p-columnFilter type="numeric" field="id" display="menu" placeholder="Buscar por ID"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="category">
+          <div>
+            Categoría
+            <p-sortIcon field="category"></p-sortIcon>
+            <p-columnFilter type="text" field="category" display="menu" placeholder="Buscar por category"></p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="date">
+          <div>
+            Fecha de creación
+            <p-sortIcon field="date"></p-sortIcon>
+            <p-columnFilter type="date" field="date" display="menu"
+              placeholder="Buscar por Fecha de creación"></p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-element>
+      <tr class="table-tr">
+        <td>
+          {{ element.id }}
+        </td>
+        <td>
+          {{ element.category }}
+        </td>
+        <td>
+          {{ element.date | date }}
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8">No hay productos.</td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="loadingbody">
+      <tr>
+        <td colspan="5">Cargando información de los productos. Por favor, espera.</td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+</p-card>
