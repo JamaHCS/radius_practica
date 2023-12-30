@@ -1,3 +1,8 @@
+/**
+ * Definición de configuraciones globales de traducción y formato.
+ * @constant
+ * @type {object}
+ */
 export const globals = {
   translation: {
     firstDayOfWeek: 0,

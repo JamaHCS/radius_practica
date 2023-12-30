@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { FilterMatchMode, PrimeNGConfig } from 'primeng/api';
 import { GlobalService } from './core/services/global/global.service';
 import { Observable } from 'rxjs';
-
+/**
+ * Componente principal de la aplicación.
+ * @Component
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,15 +13,21 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'radius_practica';
-
+  /**
+   * Observable que indica el estado de carga.
+   * @type {Observable<boolean>}
+   */
   public isLoading$: Observable<boolean>;
 
   constructor(
     private primengConfig: PrimeNGConfig,
     private globalService: GlobalService
   ) {}
-
+  /**
+   * Método de inicialización del componente.
+   */
   ngOnInit() {
+    // Configuración de PrimeNG
     this.primengConfig.ripple = true;
     this.isLoading$ = this.globalService.isLoading;
     this.primengConfig.zIndex = {
@@ -51,6 +60,8 @@ export class AppComponent {
         FilterMatchMode.DATE_AFTER,
       ],
     };
+
+    // Configuración de traducciones para filtros y textos en PrimeNG
     this.primengConfig.setTranslation({
       startsWith: 'Comienza con',
       contains: 'Contiene',
